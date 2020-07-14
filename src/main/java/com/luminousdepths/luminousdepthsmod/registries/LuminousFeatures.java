@@ -1,6 +1,7 @@
 package com.luminousdepths.luminousdepthsmod.registries;
 
 import com.luminousdepths.luminousdepthsmod.LuminousDepthsMod;
+import com.luminousdepths.luminousdepthsmod.features.DeepCoralMushroomFeature;
 import com.luminousdepths.luminousdepthsmod.features.DeepCoralTreeFeature;
 import net.minecraft.block.Block;
 import net.minecraft.util.math.BlockPos;
@@ -8,6 +9,7 @@ import net.minecraft.util.registry.Registry;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.feature.*;
+import net.minecraft.world.gen.feature.DeepCoralClawFeature;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.DeferredRegister;
@@ -21,8 +23,8 @@ public class LuminousFeatures extends net.minecraftforge.registries.ForgeRegistr
     public static final DeferredRegister<Feature<?>> FEATURES = new DeferredRegister<>(ForgeRegistries.FEATURES, LuminousDepthsMod.MODID);
 
     public static final RegistryObject<Feature<NoFeatureConfig>> DEEP_CORAL_TREE = FEATURES.register("deep_coral_tree", () -> new DeepCoralTreeFeature(NoFeatureConfig::deserialize));
-    //public static final Feature<NoFeatureConfig> DEEP_CORAL_MUSHROOM = register("deep_coral_mushroom", new CoralMushroomFeature(NoFeatureConfig::deserialize));
-    //public static final Feature<NoFeatureConfig> DEEP_CORAL_CLAW = register("deep_coral_claw", new CoralClawFeature(NoFeatureConfig::deserialize));
+    public static final Feature<NoFeatureConfig> DEEP_CORAL_MUSHROOM = register("deep_coral_mushroom", new DeepCoralMushroomFeature(NoFeatureConfig::deserialize));
+    public static final Feature<NoFeatureConfig> DEEP_CORAL_CLAW = register("deep_coral_claw", new DeepCoralClawFeature(NoFeatureConfig::deserialize));
 
     public LuminousFeatures() {
         super();
