@@ -55,10 +55,7 @@ public class LuminousDepthsMod
 
     }
 
-    @SubscribeEvent
-    public static void onRegisterBiomes(final RegistryEvent.Register<Biome> event) {
-        LuminousBiomes.registerBiomes();
-    }
+
 
     private void setup(final FMLCommonSetupEvent event)
     {
@@ -94,12 +91,16 @@ public class LuminousDepthsMod
 
     // You can use EventBusSubscriber to automatically subscribe events on the contained class (this is subscribing to the MOD
     // Event bus for receiving Registry Events)
-    @Mod.EventBusSubscriber(bus=Mod.EventBusSubscriber.Bus.MOD)
+    @Mod.EventBusSubscriber(bus=Mod.EventBusSubscriber.Bus.MOD, modid = "luminousdepths")
     public static class RegistryEvents {
         @SubscribeEvent
         public static void onBlocksRegistry(final RegistryEvent.Register<Block> blockRegistryEvent) {
             // register a new block here
             LOGGER.info("HELLO from Register Block");
+        }
+        @SubscribeEvent
+        public static void onRegisterBiomes(final RegistryEvent.Register<Biome> event) {
+            LuminousBiomes.registerBiomes();
         }
     }
 }
