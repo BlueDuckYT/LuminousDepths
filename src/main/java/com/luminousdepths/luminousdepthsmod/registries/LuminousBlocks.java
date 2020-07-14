@@ -36,8 +36,16 @@ public class LuminousBlocks { //implements IForgeRegistryEntry {
     public static final RegistryObject<Block> BLACK_SANDSTONE_SMOOTH = BLOCKS.register("black_sandstone_smooth", () -> new Block(BlockProperties.SANDSTONE));
     public static final RegistryObject<Item> BLACK_SANDSTONE_SMOOTH_ITEM = ITEMS.register("black_sandstone_smooth", () -> new BlockItemBase(BLACK_SANDSTONE_SMOOTH.get()));
 
-    public static final RegistryObject<Block> GLOW_ROCK = BLOCKS.register("glowrock", () -> new LuminousBlockBase(BlockProperties.ROCK));
+    //Tungsten
+    public static final RegistryObject<Block> TUNGSTEN_BLOCK = BLOCKS.register("tungsten_block", () -> new LuminousBlockBase(BlockProperties.METAL));
+    public static final RegistryObject<Item> TUNGSTEN_BLOCK_ITEM = ITEMS.register("tungsten_block", () -> new BlockItemBase(TUNGSTEN_BLOCK.get()));
+
+    //Glow Rock
+    public static final RegistryObject<Block> GLOW_ROCK = BLOCKS.register("glowrock", () -> new LuminousBlockBase(BlockProperties.LUMINOUSOBJECT));
     public static final RegistryObject<Item> GLOW_ROCK_ITEM = ITEMS.register("glowrock", () -> new BlockItemBase(GLOW_ROCK.get()));
+
+    public static final RegistryObject<Block> HARDENED_BRINE = BLOCKS.register("hardened_brine", () -> new LuminousBlockBase(BlockProperties.LUMINOUSOBJECT));
+    public static final RegistryObject<Item> HARDENED_BRINE_ITEM = ITEMS.register("hardened_brine", () -> new BlockItemBase(HARDENED_BRINE.get()));
 
     public static void init() {
         BLOCKS.register(FMLJavaModLoadingContext.get().getModEventBus());

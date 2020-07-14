@@ -1,8 +1,11 @@
 package com.luminousdepths.luminousdepthsmod;
 
+import com.luminousdepths.luminousdepthsmod.registries.LuminousBiomes;
 import com.luminousdepths.luminousdepthsmod.registries.LuminousBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
+import net.minecraft.util.registry.Registry;
+import net.minecraft.world.biome.Biome;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -15,6 +18,7 @@ import net.minecraftforge.fml.event.lifecycle.InterModEnqueueEvent;
 import net.minecraftforge.fml.event.lifecycle.InterModProcessEvent;
 import net.minecraftforge.fml.event.server.FMLServerStartingEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.minecraftforge.registries.IForgeRegistryEntry;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -42,11 +46,18 @@ public class LuminousDepthsMod
 
         //LuminousBlocks.BLOCKS.register(bus);
         LuminousBlocks.init();
+        LuminousBiomes.init();
 
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
 
 
+
+    }
+
+    @SubscribeEvent
+    public static void onRegisterBiomes(final RegistryEvent.Register<Biome> event) {
+        LuminousBiomes.registerBiomes();
     }
 
     private void setup(final FMLCommonSetupEvent event)

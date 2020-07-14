@@ -9,6 +9,12 @@ public class BlockProperties {
 
     public static final Block.Properties ROCK = Block.Properties.create(Material.ROCK);
 
+    public static final Block.Properties METAL = Block.Properties.create(Material.IRON).hardnessAndResistance(2F, 3F).harvestLevel(2)
+            .harvestTool(ToolType.PICKAXE).sound(SoundType.METAL);
+
+    public static final Block.Properties LUMINOUSOBJECT = Block.Properties.create(Material.ROCK).hardnessAndResistance(1F, 1F).harvestLevel(2)
+            .harvestTool(ToolType.PICKAXE).lightValue(9);
+
     public static final Block.Properties SAND = Block.Properties.create(Material.SAND).hardnessAndResistance((float) 0.5, (float) 0.5)
             .sound(SoundType.SAND);
     public static final Block.Properties SANDSTONE = Block.Properties.create(Material.ROCK).hardnessAndResistance(1.0F, 2F).sound(
