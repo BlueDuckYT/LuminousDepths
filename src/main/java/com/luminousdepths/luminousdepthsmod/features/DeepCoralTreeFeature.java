@@ -13,7 +13,7 @@ import net.minecraft.world.IWorld;
 import net.minecraft.world.gen.feature.CoralFeature;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
 
-public class DeepCoralTreeFeature extends CoralFeature {
+public class DeepCoralTreeFeature extends DeepCoralFeature {
     public DeepCoralTreeFeature(Function<Dynamic<?>, ? extends NoFeatureConfig> p_i49896_1_) {
         super(p_i49896_1_);
     }

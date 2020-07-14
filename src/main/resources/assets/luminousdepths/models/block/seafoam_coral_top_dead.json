@@ -1,0 +1,6 @@
+{
+  "parent": "block/cross",
+  "textures": {
+    "cross": "luminousdepths:blocks/seafoam_coral_top_dead"
+  }
+}

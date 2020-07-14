@@ -1,11 +1,23 @@
 package com.luminousdepths.luminousdepthsmod;
 
+import com.google.common.collect.ImmutableList;
+import com.luminousdepths.luminousdepthsmod.biomes.DeepReef;
 import com.luminousdepths.luminousdepthsmod.registries.LuminousBiomes;
 import com.luminousdepths.luminousdepthsmod.registries.LuminousBlocks;
+import com.luminousdepths.luminousdepthsmod.registries.LuminousFeatures;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
+import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.RenderTypeLookup;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.biome.Biome;
+import net.minecraft.world.gen.GenerationStage;
+import net.minecraft.world.gen.Heightmap;
+import net.minecraft.world.gen.feature.Feature;
+import net.minecraft.world.gen.feature.IFeatureConfig;
+import net.minecraft.world.gen.feature.SingleRandomFeature;
+import net.minecraft.world.gen.placement.Placement;
+import net.minecraft.world.gen.placement.TopSolidWithNoiseConfig;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -45,11 +57,14 @@ public class LuminousDepthsMod
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::doClientStuff);
 
         //LuminousBlocks.BLOCKS.register(bus);
+        LuminousFeatures.init();
         LuminousBlocks.init();
         LuminousBiomes.init();
 
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
+        bus.addListener(this::setup);
+
 
 
 
@@ -59,9 +74,13 @@ public class LuminousDepthsMod
 
     private void setup(final FMLCommonSetupEvent event)
     {
-        // some preinit code
-        LOGGER.info("HELLO FROM PREINIT");
-       // LOGGER.info("DIRT BLOCK >> {}", Blocks.DIRT.getRegistryName());
+        LuminousBiomes.DEEP_REEF.get().addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.SIMPLE_RANDOM_SELECTOR.withConfiguration(new SingleRandomFeature(ImmutableList.of(LuminousFeatures.DEEP_CORAL_TREE.get().withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG), Feature.CORAL_CLAW.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG), Feature.CORAL_MUSHROOM.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)))).withPlacement(Placement.TOP_SOLID_HEIGHTMAP_NOISE_BIASED.configure(new TopSolidWithNoiseConfig(20, 400.0D, 0.0D, Heightmap.Type.OCEAN_FLOOR_WG))));
+        RenderTypeLookup.setRenderLayer(LuminousBlocks.SEAFOAM_CORAL_FAN.get(), RenderType.getCutout());
+        RenderTypeLookup.setRenderLayer(LuminousBlocks.SEAFOAM_CORAL_FAN_TOP.get(), RenderType.getCutout());
+        RenderTypeLookup.setRenderLayer(LuminousBlocks.SEAFOAM_CORAL_FAN_DEAD.get(), RenderType.getCutout());
+        RenderTypeLookup.setRenderLayer(LuminousBlocks.SEAFOAM_CORAL_FAN_TOP_DEAD.get(), RenderType.getCutout());
+        RenderTypeLookup.setRenderLayer(LuminousBlocks.SEAFOAM_CORAL_TOP.get(), RenderType.getCutout());
+        RenderTypeLookup.setRenderLayer(LuminousBlocks.SEAFOAM_CORAL_TOP_DEAD.get(), RenderType.getCutout());
     }
 
     private void doClientStuff(final FMLClientSetupEvent event) {

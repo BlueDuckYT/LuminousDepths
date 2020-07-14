@@ -23,7 +23,7 @@ public abstract class DeepCoralFeature extends Feature<NoFeatureConfig> {
     }
 
     public boolean place(IWorld worldIn, ChunkGenerator<? extends GenerationSettings> generator, Random rand, BlockPos pos, NoFeatureConfig config) {
-        BlockState blockstate = LuminousBlockTags.DEEP_CORAL.getRandomElement(rand).getDefaultState();
+        BlockState blockstate = LuminousBlockTags.DEEP_CORAL_BLOCKS.getRandomElement(rand).getDefaultState();
         return this.func_204623_a(worldIn, rand, pos, blockstate);
     }
 
@@ -32,7 +32,7 @@ public abstract class DeepCoralFeature extends Feature<NoFeatureConfig> {
     protected boolean func_204624_b(IWorld p_204624_1_, Random p_204624_2_, BlockPos p_204624_3_, BlockState p_204624_4_) {
         BlockPos blockpos = p_204624_3_.up();
         BlockState blockstate = p_204624_1_.getBlockState(p_204624_3_);
-        if ((blockstate.getBlock() == Blocks.WATER || blockstate.isIn(LuminousBlockTags.DEEP_CORAL)) && p_204624_1_.getBlockState(blockpos).getBlock() == Blocks.WATER) {
+        if ((blockstate.getBlock() == Blocks.WATER || blockstate.isIn(LuminousBlockTags.DEEP_CORAL_BLOCKS)) && p_204624_1_.getBlockState(blockpos).getBlock() == Blocks.WATER) {
             p_204624_1_.setBlockState(p_204624_3_, p_204624_4_, 3);
             if (p_204624_2_.nextFloat() < 0.25F) {
                 p_204624_1_.setBlockState(blockpos, LuminousBlockTags.DEEP_CORALS.getRandomElement(p_204624_2_).getDefaultState(), 2);

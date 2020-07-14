@@ -1,8 +1,8 @@
 {
   "variants": {
-    "facing=east": { "model": "luminousdepths:blocks/seafoam_coral_fan_dead", "y": 90 },
-    "facing=south": { "model": "luminousdepths:blocks/seafoam_coral_fan_dead", "y": 180 },
-    "facing=west": { "model": "luminousdepths:blocks/seafoam_coral_fan_dead", "y": 270 },
-    "facing=north": { "model": "luminousdepths:blocks/seafoam_coral_fan_dead", "y": 0 }
+    "facing=east": { "model": "luminousdepths:block/seafoam_coral_fan_dead", "y": 90 },
+    "facing=south": { "model": "luminousdepths:block/seafoam_coral_fan_dead", "y": 180 },
+    "facing=west": { "model": "luminousdepths:block/seafoam_coral_fan_dead", "y": 270 },
+    "facing=north": { "model": "luminousdepths:block/seafoam_coral_fan_dead", "y": 0 }
   }
 }
