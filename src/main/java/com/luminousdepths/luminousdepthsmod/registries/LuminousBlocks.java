@@ -1,9 +1,6 @@
 package com.luminousdepths.luminousdepthsmod.registries;
 
-import com.luminousdepths.luminousdepthsmod.Blocks.BlackSand;
-import com.luminousdepths.luminousdepthsmod.Blocks.BlockItemBase;
-import com.luminousdepths.luminousdepthsmod.Blocks.LuminousBlockBase;
-import com.luminousdepths.luminousdepthsmod.Blocks.LuminousCoralBlockBase;
+import com.luminousdepths.luminousdepthsmod.Blocks.*;
 import com.luminousdepths.luminousdepthsmod.LuminousDepthsMod;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -50,9 +47,14 @@ public class LuminousBlocks { //implements IForgeRegistryEntry {
 
     //Custom Corals
     public static final RegistryObject<Block> SEAFOAM_CORAL_DEAD = BLOCKS.register("seafoam_coral_dead", () -> new LuminousBlockBase(BlockProperties.ROCK));
-    public static final RegistryObject<Item> SEAFOAM_CORAL_DEAD_ITEM = ITEMS.register("seafoam_coral_dead", () -> new BlockItemBase(SEAFOAM_CORAL_DEAD.get()));
     public static final RegistryObject<Block> SEAFOAM_CORAL = BLOCKS.register("seafoam_coral", () -> new LuminousCoralBlockBase(SEAFOAM_CORAL_DEAD.get(), BlockProperties.LUMINOUSOBJECT));
     public static final RegistryObject<Item> SEAFOAM_CORAL_ITEM = ITEMS.register("seafoam_coral", () -> new BlockItemBase(SEAFOAM_CORAL.get()));
+    public static final RegistryObject<Item> SEAFOAM_CORAL_DEAD_ITEM = ITEMS.register("seafoam_coral_dead", () -> new BlockItemBase(SEAFOAM_CORAL_DEAD.get()));
+    public static final RegistryObject<Block> SEAFOAM_CORAL_FAN_DEAD = BLOCKS.register("seafoam_coral_fan_dead", () -> new LuminousBlockBase(BlockProperties.ROCK));
+    public static final RegistryObject<Block> SEAFOAM_CORAL_FAN = BLOCKS.register("seafoam_coral_fan", () -> new LuminousCoralFanBase(SEAFOAM_CORAL_FAN_DEAD.get(), BlockProperties.LUMINOUSOBJECT));
+    public static final RegistryObject<Item> SEAFOAM_CORAL_FAN_DEAD_ITEM = ITEMS.register("seafoam_coral_fan_dead", () -> new BlockItemBase(SEAFOAM_CORAL_FAN_DEAD.get()));
+    public static final RegistryObject<Item> SEAFOAM_CORAL_FAN_ITEM = ITEMS.register("seafoam_coral_fan", () -> new BlockItemBase(SEAFOAM_CORAL_FAN.get()));
+
 
     public static void init() {
         BLOCKS.register(FMLJavaModLoadingContext.get().getModEventBus());
