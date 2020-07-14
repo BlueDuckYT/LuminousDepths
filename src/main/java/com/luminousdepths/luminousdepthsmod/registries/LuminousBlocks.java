@@ -3,6 +3,7 @@ package com.luminousdepths.luminousdepthsmod.registries;
 import com.luminousdepths.luminousdepthsmod.Blocks.BlackSand;
 import com.luminousdepths.luminousdepthsmod.Blocks.BlockItemBase;
 import com.luminousdepths.luminousdepthsmod.Blocks.LuminousBlockBase;
+import com.luminousdepths.luminousdepthsmod.Blocks.LuminousCoralBlockBase;
 import com.luminousdepths.luminousdepthsmod.LuminousDepthsMod;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -46,6 +47,12 @@ public class LuminousBlocks { //implements IForgeRegistryEntry {
 
     public static final RegistryObject<Block> HARDENED_BRINE = BLOCKS.register("hardened_brine", () -> new LuminousBlockBase(BlockProperties.LUMINOUSOBJECT));
     public static final RegistryObject<Item> HARDENED_BRINE_ITEM = ITEMS.register("hardened_brine", () -> new BlockItemBase(HARDENED_BRINE.get()));
+
+    //Custom Corals
+    public static final RegistryObject<Block> SEAFOAM_CORAL_DEAD = BLOCKS.register("seafoam_coral_dead", () -> new LuminousBlockBase(BlockProperties.ROCK));
+    public static final RegistryObject<Item> SEAFOAM_CORAL_DEAD_ITEM = ITEMS.register("seafoam_coral_dead", () -> new BlockItemBase(SEAFOAM_CORAL_DEAD.get()));
+    public static final RegistryObject<Block> SEAFOAM_CORAL = BLOCKS.register("seafoam_coral", () -> new LuminousCoralBlockBase(SEAFOAM_CORAL_DEAD.get(), BlockProperties.LUMINOUSOBJECT));
+    public static final RegistryObject<Item> SEAFOAM_CORAL_ITEM = ITEMS.register("seafoam_coral", () -> new BlockItemBase(SEAFOAM_CORAL.get()));
 
     public static void init() {
         BLOCKS.register(FMLJavaModLoadingContext.get().getModEventBus());

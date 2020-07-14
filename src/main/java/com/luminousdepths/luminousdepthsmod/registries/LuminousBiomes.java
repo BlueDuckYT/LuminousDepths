@@ -30,7 +30,7 @@ public class LuminousBiomes {
     public static void registerBiome(Biome biome, BiomeDictionary.Type... types) {
         BiomeDictionary.addTypes(biome, types);
         //BiomeManager.addSpawnBiome(biome);
-        BiomeManager.addBiome(BiomeManager.BiomeType.COOL, new BiomeManager.BiomeEntry(biome, 100));
+        BiomeManager.addBiome(BiomeManager.BiomeType.COOL, new BiomeManager.BiomeEntry(biome, 20));
 
     }
 

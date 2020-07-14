@@ -3,5 +3,9 @@
   "block.luminousdepths.black_sandstone": "Black Sandstone",
   "block.luminousdepths.black_sandstone_chiseled": "Chiseled Black Sandstone",
   "block.luminousdepths.black_sandstone_smooth": "Smooth Black Sandstone",
-  "block.luminousdepths.glowrock": "Glowrock"
+  "block.luminousdepths.glowrock": "Glowrock",
+  "block.luminousdepths.seafoam_coral": "Favildae Coral",
+  "block.luminousdepths.seafoam_coral_dead": "Dead Favildae Coral",
+  "block.luminousdepths.tungsten_block": "Block of Tungsten",
+  "block.luminousdepths.hardened_brine": "Hardened Brine"
 }
