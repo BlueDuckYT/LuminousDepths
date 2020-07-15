@@ -27,13 +27,13 @@ public class LuminousBiomes {
     }
 
     public static void registerBiomes() {
-        registerBiome(SEA_BASIN.get(), BiomeDictionary.Type.OCEAN);
-        registerBiome(DEEP_REEF.get(), BiomeDictionary.Type.OCEAN);
+        registerBiome(SEA_BASIN.get(), BiomeManager.BiomeType.COOL, BiomeDictionary.Type.OCEAN);
+        registerBiome(DEEP_REEF.get(), BiomeManager.BiomeType.WARM, BiomeDictionary.Type.OCEAN);
     }
-    public static void registerBiome(Biome biome, BiomeDictionary.Type... types) {
+    public static void registerBiome(Biome biome, BiomeManager.BiomeType type, BiomeDictionary.Type... types) {
         BiomeDictionary.addTypes(biome, types);
         //BiomeManager.addSpawnBiome(biome);
-        BiomeManager.addBiome(BiomeManager.BiomeType.COOL, new BiomeManager.BiomeEntry(biome, 20));
+        BiomeManager.addBiome(type, new BiomeManager.BiomeEntry(biome, 5));
 
     }
 
