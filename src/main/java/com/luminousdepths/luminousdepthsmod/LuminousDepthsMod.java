@@ -74,7 +74,7 @@ public class LuminousDepthsMod
 
     private void setup(final FMLCommonSetupEvent event)
     {
-        LuminousBiomes.DEEP_REEF.get().addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.SIMPLE_RANDOM_SELECTOR.withConfiguration(new SingleRandomFeature(ImmutableList.of(LuminousFeatures.DEEP_CORAL_TREE.get().withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG), Feature.CORAL_CLAW.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG), Feature.CORAL_MUSHROOM.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)))).withPlacement(Placement.TOP_SOLID_HEIGHTMAP_NOISE_BIASED.configure(new TopSolidWithNoiseConfig(20, 400.0D, 0.0D, Heightmap.Type.OCEAN_FLOOR_WG))));
+        LuminousBiomes.DEEP_REEF.get().addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.SIMPLE_RANDOM_SELECTOR.withConfiguration(new SingleRandomFeature(ImmutableList.of(LuminousFeatures.DEEP_CORAL_TREE.get().withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG), LuminousFeatures.DEEP_CORAL_CLAW.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG), LuminousFeatures.DEEP_CORAL_MUSHROOM.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)))).withPlacement(Placement.TOP_SOLID_HEIGHTMAP_NOISE_BIASED.configure(new TopSolidWithNoiseConfig(20, 400.0D, 0.0D, Heightmap.Type.OCEAN_FLOOR_WG))));
         RenderTypeLookup.setRenderLayer(LuminousBlocks.SEAFOAM_CORAL_FAN.get(), RenderType.getCutout());
         RenderTypeLookup.setRenderLayer(LuminousBlocks.SEAFOAM_CORAL_FAN_TOP.get(), RenderType.getCutout());
         RenderTypeLookup.setRenderLayer(LuminousBlocks.SEAFOAM_CORAL_FAN_DEAD.get(), RenderType.getCutout());

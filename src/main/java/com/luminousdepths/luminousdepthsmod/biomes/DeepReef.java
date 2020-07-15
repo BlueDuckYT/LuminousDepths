@@ -23,7 +23,7 @@ import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 public class DeepReef extends Biome {
 
     public DeepReef() {
-        super((new Builder()).surfaceBuilder(SurfaceBuilder.DEFAULT, SurfaceBuilder.SAND_CONFIG).precipitation(RainType.RAIN).category(Category.OCEAN).depth(-1.95F).scale(0.3F).temperature(0.5F).downfall(0.5F).waterColor(000030).waterFogColor(000030).parent((String)null));
+        super((new Builder()).surfaceBuilder(SurfaceBuilder.DEFAULT, SurfaceBuilder.SAND_CONFIG).precipitation(RainType.RAIN).category(Category.OCEAN).depth(-1.99F).scale(0.3F).temperature(0.5F).downfall(0.5F).waterColor(000030).waterFogColor(000030).parent((String)null));
 
         DefaultBiomeFeatures.addOceanCarvers(this);
         DefaultBiomeFeatures.addStructures(this);
