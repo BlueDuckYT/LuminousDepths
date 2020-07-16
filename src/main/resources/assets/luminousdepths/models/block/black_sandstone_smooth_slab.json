@@ -1,0 +1,8 @@
+{
+  "parent": "block/slab",
+  "textures": {
+    "bottom": "luminousdepths:blocks/black_sandstone_top",
+    "top": "luminousdepths:blocks/black_sandstone_top",
+    "side": "luminousdepths:blocks/black_sandstone_top"
+  }
+}

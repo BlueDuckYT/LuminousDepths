@@ -1,0 +1,7 @@
+{
+  "parent": "block/cube_top",
+  "textures": {
+    "top": "luminousdepths:blocks/dirty_cobblestone_top",
+    "side": "luminousdepths:blocks/dirty_cobblestone"
+  }
+}

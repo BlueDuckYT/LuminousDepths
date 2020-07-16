@@ -2,9 +2,7 @@ package com.luminousdepths.luminousdepthsmod;
 
 import com.google.common.collect.ImmutableList;
 import com.luminousdepths.luminousdepthsmod.biomes.DeepReef;
-import com.luminousdepths.luminousdepthsmod.registries.LuminousBiomes;
-import com.luminousdepths.luminousdepthsmod.registries.LuminousBlocks;
-import com.luminousdepths.luminousdepthsmod.registries.LuminousFeatures;
+import com.luminousdepths.luminousdepthsmod.registries.*;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.client.renderer.RenderType;
@@ -62,6 +60,9 @@ public class LuminousDepthsMod
         LuminousFeatures.init();
         LuminousBlocks.init();
         LuminousBiomes.init();
+        LuminousLiquids.init();
+        LuminousItems.init();
+
 
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);

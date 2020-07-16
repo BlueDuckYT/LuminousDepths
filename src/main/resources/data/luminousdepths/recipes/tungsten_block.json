@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "luminousdepths:tungsten_ingot"
+    }
+  },
+  "result": {
+    "item": "luminousdepths:tungsten_block"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "luminousdepths:tungsten_block",
+      "count": 1
+    }
+  ],
+  "result": {
+    "item": "luminousdepths:tungsten_ingot",
+    "count": 9
+  }
+}
