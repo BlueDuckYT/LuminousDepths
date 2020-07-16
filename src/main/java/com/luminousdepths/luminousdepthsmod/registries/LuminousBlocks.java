@@ -3,8 +3,11 @@ package com.luminousdepths.luminousdepthsmod.registries;
 import com.luminousdepths.luminousdepthsmod.Blocks.*;
 import com.luminousdepths.luminousdepthsmod.LuminousDepthsMod;
 import net.minecraft.block.Block;
+import net.minecraft.block.Blocks;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemGroup;
+import net.minecraft.item.WallOrFloorItem;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.ToolType;
 import net.minecraftforge.fml.RegistryObject;
@@ -50,8 +53,6 @@ public class LuminousBlocks { //implements IForgeRegistryEntry {
     public static final RegistryObject<Item> BLACK_SANDSTONE_SMOOTH_SLAB_ITEM = ITEMS.register("black_sandstone_smooth_slab", () -> new BlockItemBase(BLACK_SANDSTONE_SMOOTH_SLAB.get()));
 
 
-
-
     //Tungsten
     public static final RegistryObject<Block> TUNGSTEN_BLOCK = BLOCKS.register("tungsten_block", () -> new LuminousBlockBase(BlockProperties.METAL));
     public static final RegistryObject<Item> TUNGSTEN_BLOCK_ITEM = ITEMS.register("tungsten_block", () -> new BlockItemBase(TUNGSTEN_BLOCK.get()));
@@ -70,18 +71,22 @@ public class LuminousBlocks { //implements IForgeRegistryEntry {
     //Custom Corals
     public static final RegistryObject<Block> SEAFOAM_CORAL_DEAD = BLOCKS.register("seafoam_coral_dead", () -> new LuminousBlockBase(BlockProperties.CORAL));
     public static final RegistryObject<Block> SEAFOAM_CORAL = BLOCKS.register("seafoam_coral", () -> new LuminousCoralBlockBase(SEAFOAM_CORAL_DEAD.get(), BlockProperties.CORAL.lightValue(9)));
-    public static final RegistryObject<Item> SEAFOAM_CORAL_ITEM = ITEMS.register("seafoam_coral", () -> new BlockItemBase(SEAFOAM_CORAL.get()));
-    public static final RegistryObject<Item> SEAFOAM_CORAL_DEAD_ITEM = ITEMS.register("seafoam_coral_dead", () -> new BlockItemBase(SEAFOAM_CORAL_DEAD.get()));
-    public static final RegistryObject<Block> SEAFOAM_CORAL_FAN_DEAD = BLOCKS.register("seafoam_coral_fan_dead", () -> new LuminousDeadCoralFanBase(BlockProperties.CORAL.doesNotBlockMovement()));
+    public static final RegistryObject<Block> SEAFOAM_CORAL_FAN_DEAD = BLOCKS.register("seafoam_coral_fan_dead", () -> new LuminousDeadCoralFanBase(BlockProperties.ROCK.doesNotBlockMovement()));
     public static final RegistryObject<Block> SEAFOAM_CORAL_FAN = BLOCKS.register("seafoam_coral_fan", () -> new LuminousCoralFanBase(SEAFOAM_CORAL_FAN_DEAD.get(), BlockProperties.CORAL.lightValue(9).doesNotBlockMovement()));
     public static final RegistryObject<Block> SEAFOAM_CORAL_FAN_TOP_DEAD = BLOCKS.register("seafoam_coral_fan_top_dead", () -> new LuminousDeadCoralFanTopBase(BlockProperties.ROCK.doesNotBlockMovement()));
     public static final RegistryObject<Block> SEAFOAM_CORAL_FAN_TOP = BLOCKS.register("seafoam_coral_fan_top", () -> new LuminousCoralFanTopBase(SEAFOAM_CORAL_FAN_TOP_DEAD.get(), BlockProperties.CORAL.doesNotBlockMovement()));
-    public static final RegistryObject<Item> SEAFOAM_CORAL_FAN_DEAD_ITEM = ITEMS.register("seafoam_coral_fan_dead", () -> new BlockItemBase(SEAFOAM_CORAL_FAN_DEAD.get()));
-    public static final RegistryObject<Item> SEAFOAM_CORAL_FAN_ITEM = ITEMS.register("seafoam_coral_fan", () -> new BlockItemBase(SEAFOAM_CORAL_FAN.get()));
-    public static final RegistryObject<Block> SEAFOAM_CORAL_TOP_DEAD = BLOCKS.register("seafoam_coral_top_dead", () -> new LuminousDeadCoralBase(BlockProperties.CORAL.doesNotBlockMovement()));
+    public static final RegistryObject<Block> SEAFOAM_CORAL_TOP_DEAD = BLOCKS.register("seafoam_coral_top_dead", () -> new LuminousDeadCoralBase(BlockProperties.ROCK.doesNotBlockMovement()));
     public static final RegistryObject<Block> SEAFOAM_CORAL_TOP = BLOCKS.register("seafoam_coral_top", () -> new LuminousCoralBase(SEAFOAM_CORAL_TOP_DEAD.get(), BlockProperties.CORAL.lightValue(9).doesNotBlockMovement()));
-    public static final RegistryObject<Item> SEAFOAM_CORAL_TOP_DEAD_ITEM = ITEMS.register("seafoam_coral_top_dead", () -> new BlockItemBase(SEAFOAM_CORAL_TOP_DEAD.get()));
-    public static final RegistryObject<Item> SEAFOAM_CORAL_TOP_ITEM = ITEMS.register("seafoam_coral_top", () -> new BlockItemBase(SEAFOAM_CORAL_TOP.get()));
+
+    public static final RegistryObject<Item> SEAFOAM_CORAL_ITEM = ITEMS.register("seafoam_coral", () -> new BlockItemBase(SEAFOAM_CORAL.get(), new Item.Properties().group(ItemGroup.DECORATIONS)));
+    public static final RegistryObject<Item> SEAFOAM_CORAL_DEAD_ITEM = ITEMS.register("seafoam_coral_dead", () -> new BlockItemBase(SEAFOAM_CORAL_DEAD.get(), new Item.Properties().group(ItemGroup.DECORATIONS)));
+
+   public static final RegistryObject<Item> SEAFOAM_CORAL_TOP_ITEM = ITEMS.register("seafoam_coral_top", () -> new BlockItemBase(SEAFOAM_CORAL_TOP.get(), new Item.Properties().group(ItemGroup.DECORATIONS)));
+   public static final RegistryObject<Item> SEAFOAM_CORAL_TOP_DEAD_ITEM = ITEMS.register("seafoam_coral_top_dead", () -> new BlockItemBase(SEAFOAM_CORAL_TOP_DEAD.get(), new Item.Properties().group(ItemGroup.DECORATIONS)));
+
+    public static final RegistryObject<Item> SEAFOAM_CORAL_FAN_ITEM = ITEMS.register("seafoam_coral_fan", () -> new WallOrFloorItem(SEAFOAM_CORAL_FAN_TOP.get(), SEAFOAM_CORAL_FAN.get(), (new Item.Properties()).group(ItemGroup.DECORATIONS)));
+   public static final RegistryObject<Item> SEAFOAM_CORAL_FAN_DEAD_ITEM = ITEMS.register("seafoam_coral_fan_dead", () -> new WallOrFloorItem(SEAFOAM_CORAL_FAN_TOP_DEAD.get(), SEAFOAM_CORAL_FAN_DEAD.get(), (new Item.Properties()).group(ItemGroup.DECORATIONS)));
+
 
 
     public static void init() {

@@ -9,4 +9,7 @@ public class BlockItemBase extends BlockItem {
     public BlockItemBase(Block p_i48527_1_) {
         super(p_i48527_1_, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS));
     }
+    public BlockItemBase(Block p_i48527_1_, Item.Properties properties) {
+        super(p_i48527_1_, properties);
+    }
 }

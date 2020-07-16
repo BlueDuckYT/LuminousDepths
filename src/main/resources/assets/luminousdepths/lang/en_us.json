@@ -4,16 +4,20 @@
   "block.luminousdepths.black_sandstone_chiseled": "Chiseled Black Sandstone",
   "block.luminousdepths.black_sandstone_smooth": "Smooth Black Sandstone",
   "block.luminousdepths.black_sandstone_cut": "Cut Black Sandstone",
+  "block.luminousdepths.black_sandstone_slab": "Black Sandstone Slab",
+  "block.luminousdepths.black_sandstone_smooth_slab": "Smooth Black Sandstone Slab",
+  "block.luminousdepths.black_sandstone_cut_slab": "Cut Black Sandstone Slab",
   "block.luminousdepths.glowrock": "Lumestone",
   "block.luminousdepths.seafoam_coral": "Foam Coral Block",
   "block.luminousdepths.seafoam_coral_dead": "Dead Foam Coral Block",
-  "block.luminousdepths.seafoam_coral_fan": "Foam Coral Fan",
-  "block.luminousdepths.seafoam_coral_fan_dead": "Dead Foam Coral Fan",
+  "block.luminousdepths.seafoam_coral_fan_top": "Foam Coral Fan",
+  "block.luminousdepths.seafoam_coral_fan_top_dead": "Dead Foam Coral Fan",
   "block.luminousdepths.seafoam_coral_top": "Foam Coral",
   "block.luminousdepths.seafoam_coral_top_dead": "Dead Foam Coral",
   "block.luminousdepths.tungsten_block": "Block of Tungsten",
   "block.luminousdepths.hardened_brine": "Hardened Brine",
   "block.luminousdepths.dirty_cobblestone": "Dirty Cobblestone",
+  "block.luminousdepths.tungsten_deposit": "Tungsten_Deposit",
 
 
 

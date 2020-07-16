@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "luminousdepths:tungsten_deposit"
+  },
+  "result": "luminousdepths:tungsten_ingot",
+  "experience": 2.0,
+  "cookingtime": 200
+}

@@ -1,5 +1,5 @@
 {
-  "parent": "block/coral_wall_fan",
+  "parent": "block/coral_fan",
   "textures": {
     "fan": "luminousdepths:blocks/seafoam_coral_fan_dead"
   }

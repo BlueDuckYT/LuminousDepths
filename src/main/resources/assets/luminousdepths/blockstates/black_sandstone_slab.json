@@ -1,7 +1,7 @@
 {
   "variants": {
     "type=bottom": { "model": "luminousdepths:block/black_sandstone_slab" },
-    "type=top": { "model": "luminousdepths:block/black_sandstone_slab" },
+    "type=top": { "model": "luminousdepths:block/black_sandstone_slab_top" },
     "type=double": { "model": "luminousdepths:block/black_sandstone" }
   }
 }

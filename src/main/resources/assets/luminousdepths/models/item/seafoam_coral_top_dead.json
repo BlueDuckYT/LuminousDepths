@@ -1,3 +1,6 @@
 {
-  "parent": "luminousdepths:block/seafoam_coral_top_dead"
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "luminousdepths:blocks/seafoam_coral_top_dead"
+  }
 }
