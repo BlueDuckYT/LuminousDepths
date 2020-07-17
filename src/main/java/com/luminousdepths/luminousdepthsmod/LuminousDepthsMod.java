@@ -80,6 +80,10 @@ public class LuminousDepthsMod
         LuminousBiomes.DEEP_REEF.get().addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.SIMPLE_RANDOM_SELECTOR.withConfiguration(new SingleRandomFeature(ImmutableList.of(LuminousFeatures.DEEP_CORAL_TREE.get().withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG), LuminousFeatures.DEEP_CORAL_CLAW.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG), LuminousFeatures.DEEP_CORAL_MUSHROOM.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)))).withPlacement(Placement.TOP_SOLID_HEIGHTMAP_NOISE_BIASED.configure(new TopSolidWithNoiseConfig(20, 400.0D, 0.0D, Heightmap.Type.OCEAN_FLOOR_WG))));
         LuminousBiomes.DEEP_REEF.get().addFeature(GenerationStage.Decoration.LOCAL_MODIFICATIONS, Feature.FOREST_ROCK.withConfiguration(new BlockBlobConfig(LuminousBlocks.GLOW_ROCK.get().getDefaultState(), 0)).withPlacement(Placement.FOREST_ROCK.configure(new FrequencyConfig(2))));
 
+        LuminousBiomes.VOLCANIC_ZONE.get().addFeature(GenerationStage.Decoration.LOCAL_MODIFICATIONS, Feature.FOREST_ROCK.withConfiguration(new BlockBlobConfig(LuminousBlocks.TUNGSTEN_DEPOSIT.get().getDefaultState(), 0)).withPlacement(Placement.FOREST_ROCK.configure(new FrequencyConfig(2))));
+        LuminousBiomes.VOLCANIC_ZONE.get().addFeature(GenerationStage.Decoration.LOCAL_MODIFICATIONS, Feature.FOREST_ROCK.withConfiguration(new BlockBlobConfig(LuminousBlocks.MOLTENROCK.get().getDefaultState(), 0)).withPlacement(Placement.FOREST_ROCK.configure(new FrequencyConfig(2))));
+        LuminousBiomes.VOLCANIC_ZONE.get().addFeature(GenerationStage.Decoration.LOCAL_MODIFICATIONS, Feature.FOREST_ROCK.withConfiguration(new BlockBlobConfig(Blocks.OBSIDIAN.getDefaultState(), 0)).withPlacement(Placement.FOREST_ROCK.configure(new FrequencyConfig(3))));
+
         RenderTypeLookup.setRenderLayer(LuminousBlocks.SEAFOAM_CORAL_FAN.get(), RenderType.getCutout());
         RenderTypeLookup.setRenderLayer(LuminousBlocks.SEAFOAM_CORAL_FAN_TOP.get(), RenderType.getCutout());
         RenderTypeLookup.setRenderLayer(LuminousBlocks.SEAFOAM_CORAL_FAN_DEAD.get(), RenderType.getCutout());

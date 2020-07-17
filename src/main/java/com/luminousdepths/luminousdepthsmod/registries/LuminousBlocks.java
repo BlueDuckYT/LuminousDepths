@@ -4,6 +4,7 @@ import com.luminousdepths.luminousdepthsmod.Blocks.*;
 import com.luminousdepths.luminousdepthsmod.LuminousDepthsMod;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
+import net.minecraft.block.WallBlock;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
@@ -37,6 +38,9 @@ public class LuminousBlocks { //implements IForgeRegistryEntry {
     public static final RegistryObject<Block> BLACK_SANDSTONE_SLAB = BLOCKS.register("black_sandstone_slab", () -> new LuminousSlabBase(BlockProperties.SANDSTONE));
     public static final RegistryObject<Item> BLACK_SANDSTONE_SLAB_ITEM = ITEMS.register("black_sandstone_slab", () -> new BlockItemBase(BLACK_SANDSTONE_SLAB.get()));
 
+    public static final RegistryObject<Block> BLACK_SANDSTONE_WALL = BLOCKS.register("black_sandstone_wall", () -> new WallBlock(BlockProperties.SANDSTONE));
+    public static final RegistryObject<Item> BLACK_SANDSTONE_WALL_ITEM = ITEMS.register("black_sandstone_wall", () -> new BlockItemBase(BLACK_SANDSTONE_WALL.get()));
+
     public static final RegistryObject<Block> BLACK_SANDSTONE_CHISELED = BLOCKS.register("black_sandstone_chiseled", () -> new Block(BlockProperties.SANDSTONE));
     public static final RegistryObject<Item> BLACK_SANDSTONE_CHISELED_ITEM = ITEMS.register("black_sandstone_chiseled", () -> new BlockItemBase(BLACK_SANDSTONE_CHISELED.get()));
 
@@ -67,6 +71,10 @@ public class LuminousBlocks { //implements IForgeRegistryEntry {
     //Dirty Cobblestone
     public static final RegistryObject<Block> DIRTY_COBBLESTONE = BLOCKS.register("dirty_cobblestone", () -> new LuminousBlockBase(BlockProperties.ROCK));
     public static final RegistryObject<Item> DIRTY_COBBLESTONE_ITEM = ITEMS.register("dirty_cobblestone", () -> new BlockItemBase(DIRTY_COBBLESTONE.get()));
+
+    public static final RegistryObject<Block> MOLTENROCK = BLOCKS.register("moltenrock", () -> new LuminousBlockBase(BlockProperties.ROCK.lightValue(3)));
+    public static final RegistryObject<Item> MOLTENROCK_ITEM = ITEMS.register("moltenrock", () -> new BlockItemBase(MOLTENROCK.get()));
+
 
     //Custom Corals
     public static final RegistryObject<Block> SEAFOAM_CORAL_DEAD = BLOCKS.register("seafoam_coral_dead", () -> new LuminousBlockBase(BlockProperties.CORAL));
