@@ -110,6 +110,7 @@ public class IsopodModel extends EntityModel<IsopodEntity> {
 	public void setRotationAngles(IsopodEntity entityIn, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
 		bone4.rotateAngleZ = MathHelper.sin(ageInTicks) * 0.1f;
 		bone5.rotateAngleZ = MathHelper.sin(ageInTicks) * -0.1f;
+		unknown_bone.rotateAngleX = MathHelper.sin(limbSwing) * 0.2f;
 	}
 
 	@Override
