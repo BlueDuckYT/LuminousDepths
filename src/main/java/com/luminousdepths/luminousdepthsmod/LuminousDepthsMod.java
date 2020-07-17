@@ -2,11 +2,15 @@ package com.luminousdepths.luminousdepthsmod;
 
 import com.google.common.collect.ImmutableList;
 import com.luminousdepths.luminousdepthsmod.biomes.DeepReef;
+import com.luminousdepths.luminousdepthsmod.biomes.SeaBasin;
+import com.luminousdepths.luminousdepthsmod.client.entity.render.IsopodRenderer;
 import com.luminousdepths.luminousdepthsmod.registries.*;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.RenderTypeLookup;
+import net.minecraft.client.renderer.entity.EntityRendererManager;
+import net.minecraft.entity.EntityClassification;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.GenerationStage;
@@ -16,6 +20,7 @@ import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.IFeatureConfig;
 import net.minecraft.world.gen.feature.SingleRandomFeature;
 import net.minecraft.world.gen.placement.FrequencyConfig;
+import net.minecraft.world.gen.placement.NoPlacementConfig;
 import net.minecraft.world.gen.placement.Placement;
 import net.minecraft.world.gen.placement.TopSolidWithNoiseConfig;
 import net.minecraftforge.common.MinecraftForge;
@@ -23,6 +28,7 @@ import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.InterModComms;
+import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
@@ -62,6 +68,7 @@ public class LuminousDepthsMod
         LuminousBiomes.init();
         LuminousLiquids.init();
         LuminousItems.init();
+        LuminousEntities.init();
 
 
         // Register ourselves for server and other game events we are interested in
@@ -79,6 +86,7 @@ public class LuminousDepthsMod
     {
         LuminousBiomes.DEEP_REEF.get().addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.SIMPLE_RANDOM_SELECTOR.withConfiguration(new SingleRandomFeature(ImmutableList.of(LuminousFeatures.DEEP_CORAL_TREE.get().withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG), LuminousFeatures.DEEP_CORAL_CLAW.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG), LuminousFeatures.DEEP_CORAL_MUSHROOM.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)))).withPlacement(Placement.TOP_SOLID_HEIGHTMAP_NOISE_BIASED.configure(new TopSolidWithNoiseConfig(20, 400.0D, 0.0D, Heightmap.Type.OCEAN_FLOOR_WG))));
         LuminousBiomes.DEEP_REEF.get().addFeature(GenerationStage.Decoration.LOCAL_MODIFICATIONS, Feature.FOREST_ROCK.withConfiguration(new BlockBlobConfig(LuminousBlocks.GLOW_ROCK.get().getDefaultState(), 0)).withPlacement(Placement.FOREST_ROCK.configure(new FrequencyConfig(2))));
+        LuminousBiomes.DEEP_REEF.get().addFeature(GenerationStage.Decoration.LOCAL_MODIFICATIONS, Feature.FOREST_ROCK.withConfiguration(new BlockBlobConfig(LuminousBlocks.CORALLINE_ALGAE.get().getDefaultState(), 0)).withPlacement(Placement.DARK_OAK_TREE.configure(new NoPlacementConfig())));
 
         LuminousBiomes.VOLCANIC_ZONE.get().addFeature(GenerationStage.Decoration.LOCAL_MODIFICATIONS, Feature.FOREST_ROCK.withConfiguration(new BlockBlobConfig(LuminousBlocks.TUNGSTEN_DEPOSIT.get().getDefaultState(), 0)).withPlacement(Placement.FOREST_ROCK.configure(new FrequencyConfig(2))));
         LuminousBiomes.VOLCANIC_ZONE.get().addFeature(GenerationStage.Decoration.LOCAL_MODIFICATIONS, Feature.FOREST_ROCK.withConfiguration(new BlockBlobConfig(LuminousBlocks.MOLTENROCK.get().getDefaultState(), 0)).withPlacement(Placement.FOREST_ROCK.configure(new FrequencyConfig(2))));
@@ -90,6 +98,11 @@ public class LuminousDepthsMod
         RenderTypeLookup.setRenderLayer(LuminousBlocks.SEAFOAM_CORAL_FAN_TOP_DEAD.get(), RenderType.getCutout());
         RenderTypeLookup.setRenderLayer(LuminousBlocks.SEAFOAM_CORAL_TOP.get(), RenderType.getCutout());
         RenderTypeLookup.setRenderLayer(LuminousBlocks.SEAFOAM_CORAL_TOP_DEAD.get(), RenderType.getCutout());
+
+        RenderingRegistry.registerEntityRenderingHandler(LuminousEntities.ISOPOD.get(), manager -> new IsopodRenderer(manager));
+
+        ((SeaBasin)LuminousBiomes.SEA_BASIN.get()).addCreatureSpawn(EntityClassification.WATER_CREATURE, new Biome.SpawnListEntry(LuminousEntities.ISOPOD.get(), 5, 1, 1));
+
     }
 
     private void doClientStuff(final FMLClientSetupEvent event) {

@@ -68,11 +68,18 @@ public class LuminousBlocks { //implements IForgeRegistryEntry {
     public static final RegistryObject<Block> HARDENED_BRINE = BLOCKS.register("hardened_brine", () -> new LuminousBlockBase(BlockProperties.LUMINOUSOBJECT));
     public static final RegistryObject<Item> HARDENED_BRINE_ITEM = ITEMS.register("hardened_brine", () -> new BlockItemBase(HARDENED_BRINE.get()));
 
+    public static final RegistryObject<Block> CORALLINE_ALGAE_DEAD = BLOCKS.register("coralline_algae_dead", () -> new LuminousBlockBase(BlockProperties.SAND));
+    public static final RegistryObject<Item> CORALLINE_ALGAE_DEAD_ITEM = ITEMS.register("coralline_algae_dead", () -> new BlockItemBase(CORALLINE_ALGAE_DEAD.get()));
+
+    public static final RegistryObject<Block> CORALLINE_ALGAE = BLOCKS.register("coralline_algae", () -> new LuminousCoralBlockBase(CORALLINE_ALGAE_DEAD.get(), BlockProperties.ALGAE));
+    public static final RegistryObject<Item> CORALLINE_ALGAE_ITEM = ITEMS.register("coralline_algae", () -> new BlockItemBase(CORALLINE_ALGAE.get()));
+
+
     //Dirty Cobblestone
     public static final RegistryObject<Block> DIRTY_COBBLESTONE = BLOCKS.register("dirty_cobblestone", () -> new LuminousBlockBase(BlockProperties.ROCK));
     public static final RegistryObject<Item> DIRTY_COBBLESTONE_ITEM = ITEMS.register("dirty_cobblestone", () -> new BlockItemBase(DIRTY_COBBLESTONE.get()));
 
-    public static final RegistryObject<Block> MOLTENROCK = BLOCKS.register("moltenrock", () -> new LuminousBlockBase(BlockProperties.ROCK.lightValue(3)));
+    public static final RegistryObject<Block> MOLTENROCK = BLOCKS.register("moltenrock", () -> new LuminousBlockBase(BlockProperties.MOLTENROCK));
     public static final RegistryObject<Item> MOLTENROCK_ITEM = ITEMS.register("moltenrock", () -> new BlockItemBase(MOLTENROCK.get()));
 
 

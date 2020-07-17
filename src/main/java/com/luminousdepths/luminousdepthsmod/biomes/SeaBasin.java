@@ -2,6 +2,7 @@ package com.luminousdepths.luminousdepthsmod.biomes;
 
 import com.google.common.collect.Lists;
 import com.luminousdepths.luminousdepthsmod.registries.LuminousBlocks;
+import com.luminousdepths.luminousdepthsmod.registries.LuminousEntities;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
@@ -28,6 +29,11 @@ public class SeaBasin extends Biome {
 
         this.addSpawn(EntityClassification.WATER_CREATURE, new Biome.SpawnListEntry(EntityType.SQUID, 1, 1, 1));
         this.addSpawn(EntityClassification.MONSTER, new Biome.SpawnListEntry(EntityType.DROWNED, 5, 1, 1));
+
+    }
+
+    public void addCreatureSpawn(EntityClassification classification, Biome.SpawnListEntry entry) {
+        this.addSpawn(classification, entry);
     }
 
 }

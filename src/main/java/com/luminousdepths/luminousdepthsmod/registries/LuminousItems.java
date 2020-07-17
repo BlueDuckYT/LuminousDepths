@@ -18,6 +18,9 @@ public class LuminousItems {
 
     public static final RegistryObject<Item> TUNGSTEN_INGOT = ITEMS.register("tungsten_ingot", () -> new ItemBase(new Item.Properties().group(ItemGroup.MATERIALS)));
     public static final RegistryObject<Item> TUNGSTEN_NUGGET = ITEMS.register("tungsten_nugget", () -> new ItemBase(new Item.Properties().group(ItemGroup.MATERIALS)));
+    public static final RegistryObject<Item> ESCA = ITEMS.register("esca", () -> new ItemBase(new Item.Properties().group(ItemGroup.MATERIALS)));
+    public static final RegistryObject<Item> ISOCARAPACE = ITEMS.register("isocarapace", () -> new ItemBase(new Item.Properties().group(ItemGroup.MATERIALS)));
+    public static final RegistryObject<Item> CORALLINE_ALGAE_GROWTH = ITEMS.register("coralline_algae_growth", () -> new ItemBase(new Item.Properties().group(ItemGroup.MATERIALS)));
 
     public static void init() {
         ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
