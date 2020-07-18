@@ -25,7 +25,7 @@ public class LuminousItems {
     public static final RegistryObject<Item> ISOCARAPACE = ITEMS.register("isocarapace", () -> new ItemBase(new Item.Properties().group(ItemGroup.MATERIALS)));
     public static final RegistryObject<Item> CORALLINE_ALGAE_GROWTH = ITEMS.register("coralline_algae_growth", () -> new ItemBase(new Item.Properties().group(ItemGroup.MATERIALS)));
 
-    public static final RegistryObject<Item> ISOPOD_SPAWN_EGG = ITEMS.register("coralline_algae_growth", () -> new SpawnEggItem(LuminousEntities.ISOPOD.get(),11022961, 11035249, new Item.Properties().group(ItemGroup.MATERIALS)));
+    public static final RegistryObject<Item> ISOPOD_SPAWN_EGG = ITEMS.register("isopod_spawn_egg", () -> new SpawnEggItem(LuminousEntities.ISOPOD.get(),11022961, 11035249, new Item.Properties().group(ItemGroup.MATERIALS)));
 
 
 

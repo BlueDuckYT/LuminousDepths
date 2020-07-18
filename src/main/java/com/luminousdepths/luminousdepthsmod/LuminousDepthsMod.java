@@ -99,6 +99,13 @@ public class LuminousDepthsMod
         RenderTypeLookup.setRenderLayer(LuminousBlocks.SEAFOAM_CORAL_TOP.get(), RenderType.getCutout());
         RenderTypeLookup.setRenderLayer(LuminousBlocks.SEAFOAM_CORAL_TOP_DEAD.get(), RenderType.getCutout());
 
+        RenderTypeLookup.setRenderLayer(LuminousBlocks.GLOW_CORAL_FAN.get(), RenderType.getCutout());
+        RenderTypeLookup.setRenderLayer(LuminousBlocks.GLOW_CORAL_FAN_TOP.get(), RenderType.getCutout());
+        RenderTypeLookup.setRenderLayer(LuminousBlocks.GLOW_CORAL_FAN_DEAD.get(), RenderType.getCutout());
+        RenderTypeLookup.setRenderLayer(LuminousBlocks.GLOW_CORAL_FAN_TOP_DEAD.get(), RenderType.getCutout());
+        RenderTypeLookup.setRenderLayer(LuminousBlocks.GLOW_CORAL_TOP.get(), RenderType.getCutout());
+        RenderTypeLookup.setRenderLayer(LuminousBlocks.GLOW_CORAL_TOP_DEAD.get(), RenderType.getCutout());
+
         RenderingRegistry.registerEntityRenderingHandler(LuminousEntities.ISOPOD.get(), manager -> new IsopodRenderer(manager));
 
         ((SeaBasin)LuminousBiomes.SEA_BASIN.get()).addCreatureSpawn(EntityClassification.WATER_CREATURE, new Biome.SpawnListEntry(LuminousEntities.ISOPOD.get(), 5, 1, 1));

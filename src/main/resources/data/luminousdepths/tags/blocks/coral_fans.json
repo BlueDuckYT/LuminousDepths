@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "luminousdepths:seafoam_coral_fan"
+    "luminousdepths:seafoam_coral_fan",
+    "luminousdepths:glow_coral_fan"
   ]
 }
