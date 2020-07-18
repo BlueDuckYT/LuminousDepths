@@ -10,6 +10,9 @@ public class BlockProperties {
     public static final Block.Properties ROCK = Block.Properties.create(Material.ROCK).hardnessAndResistance(0.7F, 1F).harvestLevel(0)
             .harvestTool(ToolType.PICKAXE).sound(SoundType.STONE);
 
+    public static final Block.Properties DEAD_CORAL = Block.Properties.create(Material.ROCK).hardnessAndResistance(0.7F, 1F).harvestLevel(0)
+            .harvestTool(ToolType.PICKAXE).sound(SoundType.STONE).doesNotBlockMovement();
+
     public static final Block.Properties MOLTENROCK = Block.Properties.create(Material.ROCK).hardnessAndResistance(0.7F, 1F).harvestLevel(0)
             .harvestTool(ToolType.PICKAXE).sound(SoundType.STONE).lightValue(4);
 
@@ -26,6 +29,8 @@ public class BlockProperties {
 
     public static final Block.Properties CORAL = Block.Properties.create(Material.CORAL).hardnessAndResistance(0.6F, 0.3F)
             .sound(SoundType.CORAL);
+    public static final Block.Properties CORAL_BACKGROUND = Block.Properties.create(Material.CORAL).hardnessAndResistance(0.6F, 0.3F)
+            .sound(SoundType.CORAL).doesNotBlockMovement();
 
     public static final Block.Properties ALGAE = Block.Properties.create(Material.SAND).hardnessAndResistance((float) 0.5, (float) 0.5)
             .sound(SoundType.SAND).harvestTool(ToolType.SHOVEL).lightValue(10);
