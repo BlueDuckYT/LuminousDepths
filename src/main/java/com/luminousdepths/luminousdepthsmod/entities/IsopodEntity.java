@@ -1,5 +1,6 @@
 package com.luminousdepths.luminousdepthsmod.entities;
 
+import com.luminousdepths.luminousdepthsmod.registries.LuminousEntities;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.goal.NearestAttackableTargetGoal;
@@ -14,9 +15,11 @@ public class IsopodEntity extends AbstractFishEntity {
         super(type, worldIn);
     }
 
+
+
     @Override
     protected ItemStack getFishBucket() {
-        return null;
+        return new ItemStack(LuminousEntities.ISOPOD_BUCKET.get());
     }
 
     @Override

@@ -5,6 +5,8 @@ import com.luminousdepths.luminousdepthsmod.LuminousDepthsMod;
 import com.luminousdepths.luminousdepthsmod.entities.IsopodEntity;
 import com.luminousdepths.luminousdepthsmod.features.DeepCoralMushroomFeature;
 import com.luminousdepths.luminousdepthsmod.features.DeepCoralTreeFeature;
+import com.luminousdepths.luminousdepthsmod.items.LuminousFishBucket;
+import com.luminousdepths.luminousdepthsmod.items.LuminousSpawnEgg;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
@@ -22,6 +24,8 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 
+import java.util.function.Supplier;
+
 public class LuminousEntities {
 
     public static final DeferredRegister<EntityType<?>> ENTITIES = new DeferredRegister<>(ForgeRegistries.ENTITIES, LuminousDepthsMod.MODID);
@@ -31,7 +35,11 @@ public class LuminousEntities {
 
     public static final DeferredRegister<Item> ITEMS = new DeferredRegister<>(ForgeRegistries.ITEMS, LuminousDepthsMod.MODID);
 
-    //public static final RegistryObject<Item> ISOPOD_SPAWN_EGG = ITEMS.register("isopod_spawn_egg", () -> new SpawnEggItem(LuminousEntities.ISOPOD.get(),11022961, 11035249, new Item.Properties().group(ItemGroup.MISC)));
+    public static final RegistryObject<Item> ISOPOD_SPAWN_EGG = ITEMS.register("isopod_spawn_egg", () -> new LuminousSpawnEgg(() -> ISOPOD.get(),11022961, 11035249, new Item.Properties().group(ItemGroup.MISC)));
+
+
+    public static final RegistryObject<Item> ISOPOD_BUCKET = ITEMS.register("isopod_bucket", () -> new LuminousFishBucket(() -> ISOPOD.get(), new Item.Properties().group(ItemGroup.MISC)));
+
 
     public LuminousEntities() {
         super();
