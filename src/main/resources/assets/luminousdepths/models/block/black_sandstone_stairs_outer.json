@@ -1,0 +1,8 @@
+{
+    "parent": "block/outer_stairs",
+    "textures": {
+        "bottom": "luminousdepths:blocks/black_sandstone_bottom",
+        "top": "luminousdepths:blocks/black_sandstone_top",
+        "side": "luminousdepths:blocks/black_sandstone_normal"
+    }
+}

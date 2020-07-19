@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "luminousdepths:black_sandstone"
+  },
+  "result": "luminousdepths:black_sandstone_stairs",
+  "count": 1
+}

@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#!",
+    "!#"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:cobblestone"
+    },
+    "!": {
+      "item": "minecraft:dirt"
+    }
+  },
+  "result": {
+    "item": "luminousdepths:dirty_cobblestone",
+    "count": 4
+  }
+}

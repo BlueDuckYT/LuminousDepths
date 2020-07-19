@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "luminousdepths:black_sandstone_smooth"
+  },
+  "result": "luminousdepths:black_sandstone_smooth_slab",
+  "count": 2
+}

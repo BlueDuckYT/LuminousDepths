@@ -4,6 +4,7 @@ import com.luminousdepths.luminousdepthsmod.Blocks.*;
 import com.luminousdepths.luminousdepthsmod.LuminousDepthsMod;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
+import net.minecraft.block.StairsBlock;
 import net.minecraft.block.WallBlock;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
@@ -41,6 +42,9 @@ public class LuminousBlocks { //implements IForgeRegistryEntry {
     public static final RegistryObject<Block> BLACK_SANDSTONE_WALL = BLOCKS.register("black_sandstone_wall", () -> new WallBlock(BlockProperties.SANDSTONE));
     public static final RegistryObject<Item> BLACK_SANDSTONE_WALL_ITEM = ITEMS.register("black_sandstone_wall", () -> new BlockItemBase(BLACK_SANDSTONE_WALL.get()));
 
+    public static final RegistryObject<Block> BLACK_SANDSTONE_STAIRS = BLOCKS.register("black_sandstone_stairs", () -> new StairsBlock(() -> BLACK_SANDSTONE.get().getDefaultState(), BlockProperties.SANDSTONE));
+    public static final RegistryObject<Item> BLACK_SANDSTONE_STAIRS_ITEM = ITEMS.register("black_sandstone_stairs", () -> new BlockItemBase(BLACK_SANDSTONE_STAIRS.get()));
+
     public static final RegistryObject<Block> BLACK_SANDSTONE_CHISELED = BLOCKS.register("black_sandstone_chiseled", () -> new Block(BlockProperties.SANDSTONE));
     public static final RegistryObject<Item> BLACK_SANDSTONE_CHISELED_ITEM = ITEMS.register("black_sandstone_chiseled", () -> new BlockItemBase(BLACK_SANDSTONE_CHISELED.get()));
 
@@ -55,6 +59,9 @@ public class LuminousBlocks { //implements IForgeRegistryEntry {
 
     public static final RegistryObject<Block> BLACK_SANDSTONE_SMOOTH_SLAB = BLOCKS.register("black_sandstone_smooth_slab", () -> new LuminousSlabBase(BlockProperties.SANDSTONE));
     public static final RegistryObject<Item> BLACK_SANDSTONE_SMOOTH_SLAB_ITEM = ITEMS.register("black_sandstone_smooth_slab", () -> new BlockItemBase(BLACK_SANDSTONE_SMOOTH_SLAB.get()));
+
+    public static final RegistryObject<Block> BLACK_SANDSTONE_SMOOTH_STAIRS = BLOCKS.register("black_sandstone_smooth_stairs", () -> new StairsBlock(() -> BLACK_SANDSTONE_SMOOTH.get().getDefaultState(), BlockProperties.SANDSTONE));
+    public static final RegistryObject<Item> BLACK_SANDSTONE_SMOOTH_STAIRS_ITEM = ITEMS.register("black_sandstone_smooth_stairs", () -> new BlockItemBase(BLACK_SANDSTONE_SMOOTH_STAIRS.get()));
 
 
     //Tungsten
