@@ -15,8 +15,6 @@ public class IsopodEntity extends AbstractFishEntity {
         super(type, worldIn);
     }
 
-
-
     @Override
     protected ItemStack getFishBucket() {
         return new ItemStack(LuminousEntities.ISOPOD_BUCKET.get());

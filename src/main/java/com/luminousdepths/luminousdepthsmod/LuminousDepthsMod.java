@@ -1,5 +1,6 @@
 package com.luminousdepths.luminousdepthsmod;
 
+import com.google.common.base.Throwables;
 import com.google.common.collect.ImmutableList;
 import com.luminousdepths.luminousdepthsmod.biomes.DeepReef;
 import com.luminousdepths.luminousdepthsmod.biomes.SeaBasin;
@@ -11,6 +12,7 @@ import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.RenderTypeLookup;
 import net.minecraft.client.renderer.entity.EntityRendererManager;
 import net.minecraft.entity.EntityClassification;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.GenerationStage;
@@ -23,13 +25,18 @@ import net.minecraft.world.gen.placement.FrequencyConfig;
 import net.minecraft.world.gen.placement.NoPlacementConfig;
 import net.minecraft.world.gen.placement.Placement;
 import net.minecraft.world.gen.placement.TopSolidWithNoiseConfig;
+import net.minecraft.world.storage.loot.*;
+import net.minecraft.world.storage.loot.conditions.ILootCondition;
+import net.minecraft.world.storage.loot.conditions.LootConditionManager;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.LootTableLoadEvent;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.InterModComms;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.common.ObfuscationReflectionHelper;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.InterModEnqueueEvent;
@@ -40,6 +47,11 @@ import net.minecraftforge.registries.IForgeRegistryEntry;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.lang.invoke.MethodHandle;
+import java.lang.invoke.MethodHandles;
+import java.lang.reflect.Field;
+import java.util.List;
+import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
 // The value here should match an entry in the META-INF/mods.toml file
@@ -50,7 +62,9 @@ public class LuminousDepthsMod
     private static final Logger LOGGER = LogManager.getLogger();
     public static String MODID = "luminousdepths";
 
-    public LuminousDepthsMod() {
+    private static MethodHandle LOOT_TABLE_POOLS, LOOT_POOL_ENTRIES = null;
+
+    public LuminousDepthsMod() throws IllegalAccessException {
 
         IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
         // Register the setup method for modloading
@@ -74,6 +88,13 @@ public class LuminousDepthsMod
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
         bus.addListener(this::setup);
+
+        Field lootTablePools = ObfuscationReflectionHelper.findField(LootTable.class, "field_186466_c");
+        Field lootPoolEntries = ObfuscationReflectionHelper.findField(LootPool.class, "field_186453_a");
+        
+        MethodHandles.Lookup lookup = MethodHandles.lookup();
+        LOOT_TABLE_POOLS = lookup.unreflectGetter(lootTablePools);
+        LOOT_POOL_ENTRIES = lookup.unreflectGetter(lootPoolEntries);
 
 
 
@@ -110,6 +131,39 @@ public class LuminousDepthsMod
 
         ((SeaBasin)LuminousBiomes.SEA_BASIN.get()).addCreatureSpawn(EntityClassification.WATER_CREATURE, new Biome.SpawnListEntry(LuminousEntities.ISOPOD.get(), 5, 1, 1));
 
+
+
+
+
+
+    }
+
+    @SubscribeEvent
+    public static void onLootLoad(LootTableLoadEvent event) {
+
+    }
+
+    public static void addToLootTable(LootTable table, LootEntry entry) {
+        List<LootPool> pools = getPools(table);
+        if (!pools.isEmpty()) {
+            getEntries(pools.get(0)).add(entry);
+        }
+    }
+    public static List<LootEntry> getEntries(LootPool pool) {
+        try {
+            return (List<LootEntry>) LOOT_POOL_ENTRIES.invokeExact(pool);
+        } catch (Throwable throwable) {
+            Throwables.throwIfUnchecked(throwable);
+            throw new RuntimeException(throwable);
+        }
+    }
+    public static List<LootPool> getPools(LootTable table) {
+        try {
+            return (List<LootPool>) LOOT_TABLE_POOLS.invokeExact(table);
+        } catch (Throwable throwable) {
+            Throwables.throwIfUnchecked(throwable);
+            throw new RuntimeException(throwable);
+        }
     }
 
     private void doClientStuff(final FMLClientSetupEvent event) {
