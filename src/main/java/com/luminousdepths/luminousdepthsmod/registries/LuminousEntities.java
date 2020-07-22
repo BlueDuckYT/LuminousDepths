@@ -2,6 +2,7 @@ package com.luminousdepths.luminousdepthsmod.registries;
 
 import com.luminousdepths.luminousdepthsmod.Blocks.LuminousBlockBase;
 import com.luminousdepths.luminousdepthsmod.LuminousDepthsMod;
+import com.luminousdepths.luminousdepthsmod.entities.GlowPufferEntity;
 import com.luminousdepths.luminousdepthsmod.entities.IsopodEntity;
 import com.luminousdepths.luminousdepthsmod.features.DeepCoralMushroomFeature;
 import com.luminousdepths.luminousdepthsmod.features.DeepCoralTreeFeature;
@@ -33,12 +34,17 @@ public class LuminousEntities {
 
     public static final RegistryObject<EntityType<IsopodEntity>> ISOPOD = ENTITIES.register("isopod", () -> EntityType.Builder.<IsopodEntity>create(IsopodEntity::new, EntityClassification.WATER_CREATURE).size(1.0F, 0.5F).build(new ResourceLocation("luminousdepths", "isopod").toString()));
 
+    public static final RegistryObject<EntityType<GlowPufferEntity>> GLOWPUFFER = ENTITIES.register("glow_puffer", () -> EntityType.Builder.<GlowPufferEntity>create(GlowPufferEntity::new, EntityClassification.WATER_CREATURE).size(0.4F, 0.4F).build(new ResourceLocation("luminousdepths", "glow_puffer").toString()));
+
+
     public static final DeferredRegister<Item> ITEMS = new DeferredRegister<>(ForgeRegistries.ITEMS, LuminousDepthsMod.MODID);
 
     public static final RegistryObject<Item> ISOPOD_SPAWN_EGG = ITEMS.register("isopod_spawn_egg", () -> new LuminousSpawnEgg(() -> ISOPOD.get(),11022961, 11035249, new Item.Properties().group(ItemGroup.MISC)));
 
-
     public static final RegistryObject<Item> ISOPOD_BUCKET = ITEMS.register("isopod_bucket", () -> new LuminousFishBucket(() -> ISOPOD.get(), new Item.Properties().group(ItemGroup.MISC)));
+
+
+    public static final RegistryObject<Item> GLOW_PUFFER_SPAWN_EGG = ITEMS.register("glow_puffer_spawn_egg", () -> new LuminousSpawnEgg(() -> GLOWPUFFER.get(),3612, 14225045, new Item.Properties().group(ItemGroup.MISC)));
 
 
     public LuminousEntities() {

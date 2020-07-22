@@ -4,6 +4,7 @@ import com.google.common.base.Throwables;
 import com.google.common.collect.ImmutableList;
 import com.luminousdepths.luminousdepthsmod.biomes.DeepReef;
 import com.luminousdepths.luminousdepthsmod.biomes.SeaBasin;
+import com.luminousdepths.luminousdepthsmod.client.entity.render.GlowPufferRenderer;
 import com.luminousdepths.luminousdepthsmod.client.entity.render.IsopodRenderer;
 import com.luminousdepths.luminousdepthsmod.registries.*;
 import net.minecraft.block.Block;
@@ -128,8 +129,11 @@ public class LuminousDepthsMod
         RenderTypeLookup.setRenderLayer(LuminousBlocks.GLOW_CORAL_TOP_DEAD.get(), RenderType.getCutout());
 
         RenderingRegistry.registerEntityRenderingHandler(LuminousEntities.ISOPOD.get(), manager -> new IsopodRenderer(manager));
+        RenderingRegistry.registerEntityRenderingHandler(LuminousEntities.GLOWPUFFER.get(), manager -> new GlowPufferRenderer(manager));
+
 
         ((SeaBasin)LuminousBiomes.SEA_BASIN.get()).addCreatureSpawn(EntityClassification.WATER_CREATURE, new Biome.SpawnListEntry(LuminousEntities.ISOPOD.get(), 5, 1, 1));
+        ((DeepReef)LuminousBiomes.DEEP_REEF.get()).addCreatureSpawn(EntityClassification.WATER_CREATURE, new Biome.SpawnListEntry(LuminousEntities.GLOWPUFFER.get(), 10, 1, 4));
 
 
 

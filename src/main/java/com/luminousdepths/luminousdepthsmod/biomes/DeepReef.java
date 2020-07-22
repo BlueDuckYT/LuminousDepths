@@ -33,6 +33,11 @@ public class DeepReef extends Biome {
 
         this.addSpawn(EntityClassification.WATER_CREATURE, new SpawnListEntry(EntityType.SQUID, 1, 1, 1));
         this.addSpawn(EntityClassification.MONSTER, new SpawnListEntry(EntityType.DROWNED, 5, 1, 1));
+
+    }
+
+    public void addCreatureSpawn(EntityClassification classification, Biome.SpawnListEntry entry) {
+        this.addSpawn(classification, entry);
     }
 
 }

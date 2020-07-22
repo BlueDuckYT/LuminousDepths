@@ -128,7 +128,7 @@ public class LuminousBlocks { //implements IForgeRegistryEntry {
     public static final RegistryObject<Item> GLOW_CORAL_FAN_DEAD_ITEM = ITEMS.register("glow_coral_fan_dead", () -> new WallOrFloorItem(GLOW_CORAL_FAN_TOP_DEAD.get(), GLOW_CORAL_FAN_DEAD.get(), (new Item.Properties()).group(ItemGroup.DECORATIONS)));
 
 
-    public static final RegistryObject<Block> TALL_VENT = BLOCKS.register("tall_vent", () -> new LuminousVentBase(BlockProperties.MOLTENROCK));
+    public static final RegistryObject<Block> TALL_VENT = BLOCKS.register("tall_vent", () -> new LuminousVentBase(BlockProperties.MOLTENROCK.lightValue(7)));
     public static final RegistryObject<Item> TALL_VENT_ITEM = ITEMS.register("tall_vent", () -> new BlockItemBase(TALL_VENT.get()));
 
     public static final RegistryObject<Block> SHORT_VENT = BLOCKS.register("short_vent", () -> new LuminousVentBase(BlockProperties.MOLTENROCK));
