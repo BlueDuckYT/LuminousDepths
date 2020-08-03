@@ -37,6 +37,7 @@ public class LuminousBiomes {
         BiomeDictionary.addTypes(biome, types);
         //BiomeManager.addSpawnBiome(biome);
         BiomeManager.addBiome(type, new BiomeManager.BiomeEntry(biome, 10));
+        BiomeManager.oceanBiomes.add(biome);
 
     }
 
