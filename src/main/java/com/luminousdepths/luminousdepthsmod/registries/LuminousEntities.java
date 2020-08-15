@@ -3,6 +3,7 @@ package com.luminousdepths.luminousdepthsmod.registries;
 import com.luminousdepths.luminousdepthsmod.Blocks.LuminousBlockBase;
 import com.luminousdepths.luminousdepthsmod.LuminousDepthsMod;
 import com.luminousdepths.luminousdepthsmod.entities.GlowPufferEntity;
+import com.luminousdepths.luminousdepthsmod.entities.GorgeBeastEntity;
 import com.luminousdepths.luminousdepthsmod.entities.IsopodEntity;
 import com.luminousdepths.luminousdepthsmod.features.DeepCoralMushroomFeature;
 import com.luminousdepths.luminousdepthsmod.features.DeepCoralTreeFeature;
@@ -35,6 +36,8 @@ public class LuminousEntities {
     public static final RegistryObject<EntityType<IsopodEntity>> ISOPOD = ENTITIES.register("isopod", () -> EntityType.Builder.<IsopodEntity>create(IsopodEntity::new, EntityClassification.WATER_CREATURE).size(1.0F, 0.5F).build(new ResourceLocation("luminousdepths", "isopod").toString()));
 
     public static final RegistryObject<EntityType<GlowPufferEntity>> GLOWPUFFER = ENTITIES.register("glow_puffer", () -> EntityType.Builder.<GlowPufferEntity>create(GlowPufferEntity::new, EntityClassification.WATER_CREATURE).size(0.4F, 0.4F).build(new ResourceLocation("luminousdepths", "glow_puffer").toString()));
+    public static final RegistryObject<EntityType<GorgeBeastEntity>> GORGE_BEAST = ENTITIES.register("gorge_beast", () -> EntityType.Builder.<GorgeBeastEntity>create(GorgeBeastEntity::new, EntityClassification.WATER_CREATURE).size(5.0F, 1.2F).build(new ResourceLocation("luminousdepths", "gorge_beast").toString()));
+
 
 
     public static final DeferredRegister<Item> ITEMS = new DeferredRegister<>(ForgeRegistries.ITEMS, LuminousDepthsMod.MODID);
